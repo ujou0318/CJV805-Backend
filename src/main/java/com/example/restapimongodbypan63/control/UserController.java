@@ -21,13 +21,13 @@ public class UserController {
 
     @GetMapping("/users")
     public ResponseEntity getUsers(){
-        var response = new CustomizedResponse("List of users:", service.getUsers());
+        CustomizedResponse response = new CustomizedResponse("List of users:", service.getUsers());
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
     @GetMapping("/users/{id}")
     public ResponseEntity getUsers(@PathVariable("id") String id){
-        var response = new CustomizedResponse("User ID: "+id, Collections.singletonList(service.getAUser(id)));
+        CustomizedResponse response = new CustomizedResponse("User ID: "+id, Collections.singletonList(service.getAUser(id)));
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
@@ -35,7 +35,7 @@ public class UserController {
             MediaType.APPLICATION_JSON_VALUE
     })
     public ResponseEntity createUsers(@RequestBody UserModel user) {
-        var response = new CustomizedResponse("User  created. ", Collections.singletonList(service.addUser(user)));
+        CustomizedResponse response = new CustomizedResponse("User  created. ", Collections.singletonList(service.addUser(user)));
         return new ResponseEntity(response, HttpStatus.OK);
     }
 }

@@ -20,25 +20,25 @@ public class MediaController {
 
     @GetMapping("/movies")
     public ResponseEntity getMovies(){
-        var response = new CustomizedResponse("List of movies:", service.getMovies());
+        CustomizedResponse response = new CustomizedResponse("List of movies:", service.getMovies());
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
     @GetMapping("/movies/featured")
     public ResponseEntity getFeaturedMovies(){
-        var response = new CustomizedResponse("List of Featured movies:", service.getFeaturedMovies());
+        CustomizedResponse response = new CustomizedResponse("List of Featured movies:", service.getFeaturedMovies());
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
     @GetMapping("/shows")
     public ResponseEntity getShows(){
-        var response = new CustomizedResponse("List of shows:", service.getShows());
+        CustomizedResponse response = new CustomizedResponse("List of shows:", service.getShows());
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
     @GetMapping("/shows/featured")
     public ResponseEntity getFeaturedShows(){
-        var response = new CustomizedResponse("List of Featured shows:", service.getFeaturedShows());
+        CustomizedResponse response = new CustomizedResponse("List of Featured shows:", service.getFeaturedShows());
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
@@ -58,7 +58,7 @@ public class MediaController {
     public ResponseEntity getMediaByKeyword(@RequestParam(value = "name") String k)
     {
 
-        var customizedResponse = new CustomizedResponse(" A list of movies with the keyword" , service.getMediaByKeyword(k));
+        CustomizedResponse customizedResponse = new CustomizedResponse(" A list of movies with the keyword" , service.getMediaByKeyword(k));
 
         return new ResponseEntity(customizedResponse, HttpStatus.OK);
     }
@@ -86,7 +86,7 @@ public class MediaController {
     })
     public ResponseEntity editMedia(@PathVariable("id") String id, @RequestBody Media newMedia )
     {
-        var customizedResponse = new CustomizedResponse("Media: " + id + " updated." , Collections.singletonList(service.editMedia(id, newMedia)));
+        CustomizedResponse customizedResponse = new CustomizedResponse("Media: " + id + " updated." , Collections.singletonList(service.editMedia(id, newMedia)));
         return new ResponseEntity(customizedResponse, HttpStatus.OK);
     }
 }

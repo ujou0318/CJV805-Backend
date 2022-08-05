@@ -28,10 +28,10 @@ public class AuthController {
     public ResponseEntity loggin(@RequestBody UserModel user) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
-            var response = new CustomizedResponse("Login Sucessed.", null);
+            CustomizedResponse response = new CustomizedResponse("Login Sucessed.", null);
             return new ResponseEntity(response, HttpStatus.OK);
         } catch (BadCredentialsException ex) {
-            var responses = new CustomizedResponse("Your email or passowrd were incorrect.", null);
+            CustomizedResponse responses = new CustomizedResponse("Your email or passowrd were incorrect.", null);
             return new ResponseEntity(responses, HttpStatus.UNAUTHORIZED);
         }
     }
