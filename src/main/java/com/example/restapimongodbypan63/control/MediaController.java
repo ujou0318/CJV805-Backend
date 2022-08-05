@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 
+@CrossOrigin(origins = "http://cjv805-assignment1-2022summer.herokuapp.com/")
 @RestController
 public class MediaController {
 
