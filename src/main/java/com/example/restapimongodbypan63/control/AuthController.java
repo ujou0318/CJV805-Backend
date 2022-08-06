@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@CrossOrigin(origins = "http://cjv805-assignment1-2022summer.herokuapp.com/")
+@CrossOrigin
 @RestController
 public class AuthController {
 

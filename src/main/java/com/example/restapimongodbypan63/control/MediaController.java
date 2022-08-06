@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 
-@CrossOrigin(origins = "http://cjv805-assignment1-2022summer.herokuapp.com/")
+@CrossOrigin
 @RestController
 public class MediaController {
 
@@ -58,7 +58,7 @@ public class MediaController {
     public ResponseEntity getMediaByKeyword(@RequestParam(value = "name") String k)
     {
 
-        CustomizedResponse customizedResponse = new CustomizedResponse(" A list of movies with the keyword" , service.getMediaByKeyword(k));
+        CustomizedResponse customizedResponse = new CustomizedResponse(" A list of movies/shows with the keyword" , service.getMediaByKeyword(k));
 
         return new ResponseEntity(customizedResponse, HttpStatus.OK);
     }
