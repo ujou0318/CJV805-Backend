@@ -35,17 +35,16 @@ public class UserService implements UserDetailsService {
         return userRepo.findAll();
     }
 
-    public Optional<UserModel> getAUser(String id){
-        return userRepo.findById(id);
+    public UserModel getAUser(String id){
+        return userRepo.findByEmail(id);
     }
 
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserModel existedUser = userRepo.findByEmail(email);
-        System.out.println(existedUser);
         String eml = existedUser.getEmail();
         String pwd = existedUser.getPassword();
-        return new User(eml, pwd, new ArrayList<>());
+        return new User(eml, pwd,  new ArrayList<>());
     }
 }

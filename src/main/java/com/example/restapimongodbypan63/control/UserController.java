@@ -25,9 +25,9 @@ public class UserController {
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity getUsers(@PathVariable("id") String id){
-        CustomizedResponse response = new CustomizedResponse("User ID: "+id, Collections.singletonList(service.getAUser(id)));
+    @GetMapping("/users/{email}")
+    public ResponseEntity getUsers(@PathVariable("email") String email){
+        CustomizedResponse response = new CustomizedResponse("User email: "+ email, Collections.singletonList(service.getAUser(email)));
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
